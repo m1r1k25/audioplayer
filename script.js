@@ -82,7 +82,7 @@ function setProgress(event) {
 }
 progressContainer.addEventListener('click', setProgress);
 
-
+audio.addEventListener('ended', nextSong);
 
 
 
