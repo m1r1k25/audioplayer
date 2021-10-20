@@ -74,6 +74,15 @@ function updateProgress(event) {
 }
 audio.addEventListener('timeupdate', updateProgress)
 
+function setProgress(event) {
+   const width = this.clientWidth;
+   const clickX = event.offsetX;
+   const duration = audio.duration;
+   audio.currentTime = (clickX / width) * duration;
+}
+progressContainer.addEventListener('click', setProgress);
+
+
 
 
 
