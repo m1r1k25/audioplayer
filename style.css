@@ -75,7 +75,7 @@
    max-width: 220px;
    width: 100%;
    margin: 0 auto;
-   margin-top: 45px;
+   margin-top: 20px;
 }
 
 .btn img {
@@ -87,6 +87,35 @@
 .active {
    animation: rotateAnimation 4s linear;
 }
+
+.duration-time {
+   height: 20px;
+   width: 100px;
+}
+
+.time-container {
+   display: flex;
+   justify-content: space-between;
+   font-size: 20px;
+}
+
+.sound {
+   margin-top: 20px;
+}
+
+.soundBtn {
+   width: 40px;
+   height: 25px;
+}
+
+
+
+
+
+
+
+
+
 
 
 

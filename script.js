@@ -8,6 +8,7 @@ const progress = document.querySelector('.progress');
 const title = document.querySelector('.song');
 const cover = document.querySelector('.cover__img');
 const imgSrc = document.getElementById('img__src');
+const soundBtn = document.getElementById('soundBtn');
 
 const songs = ['The Pretender', 'Cant Stop', 'Stay With Me', 'Satisfaction'];
 
@@ -48,7 +49,6 @@ function nextSong() {
    if (songIndex > songs.length - 1) {
       songIndex = 0;
    }
-   
    loadSong(songs[songIndex]);
    playSong();
 }
@@ -63,7 +63,6 @@ function prevSong() {
    loadSong(songs[songIndex]);
    playSong();
 }
-
 prevBtn.addEventListener('click', prevSong);
 
 function updateProgress(event) {
@@ -83,6 +82,51 @@ function setProgress(event) {
 progressContainer.addEventListener('click', setProgress);
 
 audio.addEventListener('ended', nextSong);
+
+
+
+function updateProgressValue() {
+   document.querySelector('.currentTime').innerHTML = (formatTime(Math.floor(audio.currentTime)));
+   if (document.querySelector('.durationTime').innerHTML === "NaN:NaN") {
+      document.querySelector('.durationTime').innerHTML = "0:00";
+   } else {
+      document.querySelector('.durationTime').innerHTML = (formatTime(Math.floor(audio.duration)));
+   }
+};
+
+function formatTime(seconds) {
+   let min = Math.floor((seconds / 60));
+   let sec = Math.floor(seconds - (min * 60));
+   if (sec < 10){ 
+      sec  = `0${sec}`;
+   };
+   return `${min}:${sec}`;
+};
+
+setInterval(updateProgressValue, 500);
+
+function changeProgressBar() {
+   audio.currentTime = progressBar.value;
+};
+
+//велючение-выключение звука
+function mute() {	
+   if (audio.muted) {		
+      audio.muted = false;		
+      soundBtn.src = 'img/sound.png';	
+   } else {		
+      audio.muted = true;		
+      soundBtn.src = 'img/mute.png';	
+   }}
+soundBtn.addEventListener('click', mute)
+
+
+
+
+
+
+
+
 
 
 
