@@ -102,6 +102,7 @@ function formatTime(seconds) {
    };
    return `${min}:${sec}`;
 };
+setInterval(updateProgressValue, 500);
 
 //велючение-выключение звука
 function mute() {	
@@ -119,8 +120,9 @@ const rng = document.getElementById('range');
    function moveSound() {
       audio.volume = rng.value / 100;
    }
-rng.addEventListener('mousemove', moveSound)
-rng.addEventListener('touchmove', moveSound)
+rng.addEventListener('touchmove', moveSound);
+rng.addEventListener('mousemove', moveSound);
+
 
 
 
