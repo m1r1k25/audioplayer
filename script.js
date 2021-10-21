@@ -103,12 +103,6 @@ function formatTime(seconds) {
    return `${min}:${sec}`;
 };
 
-setInterval(updateProgressValue, 500);
-
-function changeProgressBar() {
-   audio.currentTime = progressBar.value;
-};
-
 //велючение-выключение звука
 function mute() {	
    if (audio.muted) {		
@@ -120,12 +114,13 @@ function mute() {
    }}
 soundBtn.addEventListener('click', mute)
 
-
+//регулирование громкости
 const rng = document.getElementById('range');
    function moveSound() {
       audio.volume = rng.value / 100;
    }
 rng.addEventListener('mousemove', moveSound)
+rng.addEventListener('touchmove', moveSound)
 
 
 
