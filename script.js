@@ -121,6 +121,13 @@ function mute() {
 soundBtn.addEventListener('click', mute)
 
 
+const rng = document.getElementById('range');
+   function moveSound() {
+      audio.volume = rng.value / 100;
+   }
+rng.addEventListener('mousemove', moveSound)
+
+
 
 
 
